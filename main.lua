@@ -19,6 +19,7 @@ end
 
 function love.load()
     font = love.graphics.newFont('fonts/slant.ttf', 30)
+    love.window.setTitle("Ping Pong")
     old_font = love.graphics.getFont()
     love.graphics.setFont(font)
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
@@ -57,6 +58,8 @@ function love.keypressed(key)
             right_player_y = 6 * WINDOW_HEIGHT / 8
             ball_x = WINDOW_WIDTH/2
             ball_y = WINDOW_HEIGHT/2
+            score_left = 0
+            score_right = 0;
         end
 
     end
@@ -148,7 +151,7 @@ function love.draw()
     love.graphics.setColor(0, 255, 0, 50)
     love.graphics.setFont(old_font)
     love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10, 10)
-    love.graphics.printf("Press ESC to leave game", WINDOW_WIDTH - 150, 10, 150, 'center')
+    love.graphics.printf("Press ESC to leave game\nand Enter to restart game", WINDOW_WIDTH - 150, 10, 150, 'center')
     love.graphics.setFont(font)
     love.graphics.setColor(255, 255, 255, 255)
     if game_state == 'start' then
